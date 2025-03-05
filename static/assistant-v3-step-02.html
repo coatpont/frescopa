@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html class="spectrum spectrum--medium spectrum--light">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://use.typekit.net/zdg6wra.css">
+    <title>Site Transfer Assistant</title>
+    <link rel="stylesheet" href="spectrum.css">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <script>
+      document.onreadystatechange = async function() {
+        if (document.readyState === "complete") {
+          console.log("Page is loaded completely!");
+        }
+      };
+
+      async function doReload1(event) {
+        document.dispatchEvent(new Event('disablePrompt'));
+        // Send message to parent window
+        window.parent.postMessage({
+          type: 'reloadPage',
+          url: 'https://main--frescopa--coatpont.aem.page/'
+        }, '*');
+
+        document.querySelectorAll('.ass-step-2').forEach(el => el.classList.add('disabled'));
+
+        await new Promise(resolve => setTimeout(resolve, 2237));
+
+        document.querySelector('.ass-step-3.ui-item-1').style.display = 'block';
+
+        document.dispatchEvent(new Event('enablePrompt'));
+
+        const btn = event.target || event.currentTarget;
+        btn.setAttribute('disabled', 'disabled');
+      }
+
+      async function doReload2(event) {
+        document.dispatchEvent(new Event('disablePrompt'));
+        // Send message to parent window
+        window.parent.postMessage({
+          type: 'reloadPage',
+          url: 'https://main--frescopa--coatpont.aem.page/'
+        }, '*');
+
+        document.querySelectorAll('.ass-step-3').forEach(el => el.classList.add('disabled'));
+
+        await new Promise(resolve => setTimeout(resolve, 2845));
+
+        document.querySelector('.ass-step-4.ui-item-1').style.display = 'block';
+
+        document.dispatchEvent(new Event('enablePrompt'));
+
+        const btn = event.target || event.currentTarget;
+        btn.setAttribute('disabled', 'disabled');
+      }
+
+      async function doReload3(event) {
+        document.dispatchEvent(new Event('disablePrompt'));
+        // Send message to parent window
+        window.parent.postMessage({
+          type: 'reloadPage',
+          url: 'https://main--frescopa--coatpont.aem.page/'
+        }, '*');
+
+        document.querySelectorAll('.ass-step-4').forEach(el => el.classList.add('disabled'));
+
+        await new Promise(resolve => setTimeout(resolve, 2245));
+
+        document.querySelector('.ass-step-4.ui-item-1').style.display = 'block';
+
+        document.dispatchEvent(new Event('enablePrompt'));
+
+        const btn = event.target || event.currentTarget;
+        btn.setAttribute('disabled', 'disabled');
+      }
+
+      async function applySuggestion(e, idx) {
+        // Reproduce the design of the original site
+        let el = e.target || e.currentTarget;
+        if (el) {
+          if (el.nodeName !== 'SPAN') {
+            el = el.querySelector('span');
+          }
+          const text = el.textContent;
+          document.querySelector('#assistant-content-prompt').value = text;
+          document.querySelector('#prompt-apply-button').onclick = async () => {
+            if (idx === 0) {
+              await executeSuggestion(idx);
+            } else if (idx === 1) {
+              await executeSuggestion2(idx);
+            } else if (idx === 2) {
+              await executeSuggestion3(idx);
+            }
+          };
+        }
+      }
+
+      async function executeSuggestion(idx) {
+        await new Promise(resolve => setTimeout(resolve, 240));
+
+        document.dispatchEvent(new Event('disablePrompt'));
+
+        console.log('executeSuggestion', idx);
+        document.querySelector('.ass-step-2.ui-item-20').style.display = 'block';
+        await new Promise(resolve => setTimeout(resolve, 1240));
+        document.querySelector('.ass-step-2.ui-item-21').style.display = 'block';
+
+        await new Promise(resolve => setTimeout(resolve, 3584));
+
+        document.querySelectorAll('.ass-step-2.ui-item-20 div.spinner').forEach(sp => {
+          sp.classList.add('done');
+        });
+        document.querySelectorAll('.ass-step-2.ui-item-20 .ellipsis').forEach(el => el.remove());
+
+        await new Promise(resolve => setTimeout(resolve, 1240));
+        document.querySelector('.ass-step-2.ui-item-22').style.display = 'block';
+
+        await new Promise(resolve => setTimeout(resolve, 2584));
+
+        document.querySelectorAll('.ass-step-2.ui-item-21 div.spinner').forEach(sp => {
+          sp.classList.add('done');
+        });
+        document.querySelectorAll('.ass-step-2.ui-item-21 .ellipsis').forEach(el => el.remove());
+
+        await new Promise(resolve => setTimeout(resolve, 1240));
+        document.querySelector('.ass-step-2.ui-item-23').style.display = 'block';
+        document.querySelector('.ass-step-2.ui-item-3').style.display = 'block';
+
+        await new Promise(resolve => setTimeout(resolve, 1584));
+
+        document.querySelectorAll('.ass-step-2.ui-item-22 div.spinner').forEach(sp => {
+          sp.classList.add('done');
+        });
+        document.querySelectorAll('.ass-step-2.ui-item-22 .ellipsis').forEach(el => el.remove());
+
+        await new Promise(resolve => setTimeout(resolve, 2584));
+
+        document.querySelectorAll('.ass-step-2.ui-item-23 div.spinner').forEach(sp => {
+          sp.classList.add('done');
+        });
+        document.querySelectorAll('.ass-step-2.ui-item-23 .ellipsis').forEach(el => el.remove());
+        
+        // enable the reload button
+        document.querySelector('.ass-step-2.ui-item-3 button').removeAttribute('disabled');
+
+        document.querySelector('#assistant-content-prompt').value = "";
+        document.dispatchEvent(new Event('enablePrompt'));
+      }
+
+      async function executeSuggestion2(idx) {
+        await new Promise(resolve => setTimeout(resolve, 345));
+
+        document.dispatchEvent(new Event('disablePrompt'));
+
+        console.log('executeSuggestion', idx);
+
+        document.querySelector('.ass-step-3.ui-item-20').style.display = 'block';
+        await new Promise(resolve => setTimeout(resolve, 1348));
+        document.querySelector('.ass-step-3.ui-item-21').style.display = 'block';
+
+        await new Promise(resolve => setTimeout(resolve, 4348));
+        document.querySelectorAll('.ass-step-3.ui-item-20 div.spinner').forEach(sp => {
+          sp.classList.add('done');
+        });
+        document.querySelectorAll('.ass-step-3.ui-item-20 .ellipsis').forEach(el => el.remove());
+
+        await new Promise(resolve => setTimeout(resolve, 1348));
+        document.querySelector('.ass-step-3.ui-item-22').style.display = 'block';
+
+        await new Promise(resolve => setTimeout(resolve, 4348));
+        document.querySelectorAll('.ass-step-3.ui-item-21 div.spinner').forEach(sp => {
+          sp.classList.add('done');
+        });
+        document.querySelectorAll('.ass-step-3.ui-item-21 .ellipsis').forEach(el => el.remove());
+
+        await new Promise(resolve => setTimeout(resolve, 1348));
+        document.querySelector('.ass-step-3.ui-item-23').style.display = 'block';
+
+
+        await new Promise(resolve => setTimeout(resolve, 2348));
+        document.querySelectorAll('.ass-step-3.ui-item-22 div.spinner').forEach(sp => {
+          sp.classList.add('done');
+        });
+        document.querySelectorAll('.ass-step-3.ui-item-22 .ellipsis').forEach(el => el.remove());
+
+        await new Promise(resolve => setTimeout(resolve, 1348));
+        document.querySelectorAll('.ass-step-3.ui-item-23 div.spinner').forEach(sp => {
+          sp.classList.add('done');
+        });
+        document.querySelectorAll('.ass-step-3.ui-item-23 .ellipsis').forEach(el => el.remove());
+
+
+        document.querySelector('.ass-step-3.ui-item-3').style.display = 'block';
+        
+        // enable the reload button
+        document.querySelector('.ass-step-3.ui-item-3 button').removeAttribute('disabled');
+
+        document.querySelector('#assistant-content-prompt').value = "";
+        document.dispatchEvent(new Event('enablePrompt'));
+      }
+
+      async function executeSuggestion3(idx) {
+        await new Promise(resolve => setTimeout(resolve, 199));
+
+        document.dispatchEvent(new Event('disablePrompt'));
+
+        console.log('executeSuggestion', idx);
+
+        document.querySelector('.ass-step-4.ui-item-2').style.display = 'block';
+        document.querySelector('.ass-step-4.ui-item-3').style.display = 'block';
+
+        await new Promise(resolve => setTimeout(resolve, 9923));
+
+        document.querySelectorAll('.ass-step-4.ui-item-2 div.spinner').forEach(sp => {
+          sp.classList.add('done');
+        });
+        document.querySelectorAll('.ass-step-4.ui-item-2 .ellipsis').forEach(el => el.remove());
+        
+        // enable the reload button
+        document.querySelector('.ass-step-4.ui-item-3 button').removeAttribute('disabled');
+
+        document.querySelector('#assistant-content-prompt').value = "";
+        document.dispatchEvent(new Event('enablePrompt'));
+      }
+
+
+
+      function onDisablePrompt() {
+        document.querySelector('.prompt-container').classList.add('disabled');
+      }
+
+      function onEnablePrompt() {
+        document.querySelector('.prompt-container').classList.remove('disabled');
+      }
+
+      function toggleModifiers() {
+        document.querySelector('.prompt-modifiers-container').classList.toggle('hidden');
+      }
+
+      document.addEventListener('disablePrompt', onDisablePrompt);
+      document.addEventListener('enablePrompt', onEnablePrompt);
+    </script>
+    <div id="assistant">
+      <!-- <h4>Step 2 - Basic Styling</h4> -->
+      <div class="main-container">
+
+
+        <div class="ass-step-0 ui-item-1 disabled">
+          <ul class="ass-step-analyse-website">
+            <li>
+              <div class="progress-bar">
+                <div class="spinner done"></div>
+              </div>
+              <span>Analyzing</span>
+            </li>
+          </ul>
+        </div>
+        <div class="ass-step-0 ui-item-1 suggestions-container disabled">
+          <strong>Suggested Prompts</strong>
+          <ul class="suggestions">
+            <li onclick="applySuggestion(event, 0)">
+              <div class="suggestion-item">
+                <span>Onboard the site to AEM</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="ass-step-0 ui-item-3 disabled">
+          <ul id="assistant-content-output-steps">
+            <li id="assistant-content-output-step-2" class="ui-item-1">
+              <div id="assistant-content-output-step-2-progress" class="progress-bar">
+                <div class="spinner done"></div>
+              </div>
+              <span>Setting up the project </span>
+            </li>
+            <li id="assistant-content-output-step-2" class="ui-item-2">
+              <div id="assistant-content-output-step-2-progress" class="progress-bar">
+                <div class="spinner done"></div>
+              </div>
+              <span>Mapping the content into site blocks </span>
+            </li>
+            <li id="assistant-content-output-step-3" class="ui-item-3">
+              <div id="assistant-content-output-step-3-progress" class="progress-bar">
+                <div class="spinner done"></div>
+              </div>
+              <span>Onboarding the content on AEM </span>
+            </li>
+          </ul>
+        </div>
+        <div class="ass-step-0 ui-item-4 disabled">
+          <button class="button primary reload" id="assistant-content-input-button" onclick="doOpenOnboardedContent()">Open the onboarded site in AEM</button>
+          </button>
+        </div>
+
+
+
+        <div class="ass-step-2 ui-item-1 suggestions-container">
+          <strong>Suggested Prompts</strong>
+          <ul class="suggestions">
+            <li onclick="applySuggestion(event, 0)">
+              <div class="suggestion-item">
+                <span>Reproduce the design of the original site</span>
+              </div>
+            </li>
+            <li>
+              <div class="suggestion-item">
+                <span>Apply branding from another site</span>
+              </div>
+            </li>
+            <li>
+              <div class="suggestion-item">
+                <span>Redesign the site from a new design mock</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="ass-step-2 ui-item-20">
+          <ul class="ass-step-analyse-website">
+            <li>
+              <div class="progress-bar">
+                <div class="spinner"></div>
+              </div>
+              <span>Generating the code for navigation and footer <span class="ellipsis">...</span></span>
+            </li>
+          </ul>
+        </div>
+        <div class="ass-step-2 ui-item-21">
+          <ul class="ass-step-analyse-website">
+            <li>
+              <div class="progress-bar">
+                <div class="spinner"></div>
+              </div>
+              <span>Generating the code for the blocks <span class="ellipsis">...</span></span>
+            </li>
+          </ul>
+        </div>
+        <div class="ass-step-2 ui-item-22">
+          <ul class="ass-step-analyse-website">
+            <li>
+              <div class="progress-bar">
+                <div class="spinner"></div>
+              </div>
+              <span>Comparing generated blocks with original design <span class="ellipsis">...</span></span>
+            </li>
+          </ul>
+        </div>
+        <div class="ass-step-2 ui-item-23">
+          <ul class="ass-step-analyse-website">
+            <li>
+              <div class="progress-bar">
+                <div class="spinner"></div>
+              </div>
+              <span>Adjusting block code based on feedback from critique <span class="ellipsis">...</span></span>
+            </li>
+          </ul>
+        </div>
+        <div class="ass-step-2 ui-item-3">
+          <div id="assistant-content-input">
+            <button class="button primary reload" id="assistant-content-reload-button" onclick="doReload1(event)" disabled>
+              Review the generated site design
+            </button>
+          </div>
+        </div>
+
+
+
+        <div class="ass-step-3 ui-item-1 suggestions-container">
+          <strong>Suggested Prompts</strong>
+          <ul class="suggestions">
+            <li onclick="applySuggestion(event, 1)">
+              <div class="suggestion-item">
+                <span>Apply branding from another site</span>
+              </div>
+            </li>
+            <li>
+              <div class="suggestion-item">
+                <span>Redesign the site from a new design mock</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="ass-step-3 ui-item-20">
+          <ul class="ass-step-analyse-website">
+            <li>
+              <div class="progress-bar">
+                <div class="spinner"></div>
+              </div>
+              <span id="ass-step-3-ui-item-20-text">Analysing design elements from qantas.com<span class="ellipsis">...</span></span>
+            </li>
+          </ul>
+        </div>
+        <div class="ass-step-3 ui-item-21">
+          <ul class="ass-step-analyse-website">
+            <li>
+              <div class="progress-bar">
+                <div class="spinner"></div>
+              </div>
+              <span id="ass-step-3-ui-item-21-text">Analysing context for content reuse and activation<span class="ellipsis">...</span></span>
+            </li>
+          </ul>
+        </div>
+        <div class="ass-step-3 ui-item-22">
+          <ul class="ass-step-analyse-website">
+            <li>
+              <div class="progress-bar">
+                <div class="spinner"></div>
+              </div>
+              <span id="ass-step-3-ui-item-22-text">Aligning fonts and navigation elements<span class="ellipsis">...</span></span>
+            </li>
+          </ul>
+        </div>
+        <div class="ass-step-3 ui-item-23">
+          <ul class="ass-step-analyse-website">
+            <li>
+              <div class="progress-bar">
+                <div class="spinner"></div>
+              </div>
+              <span id="ass-step-3-ui-item-23-text">Generating content variations<span class="ellipsis">...</span></span>
+            </li>
+          </ul>
+        </div>
+        <div class="ass-step-3 ui-item-3">
+          <div id="assistant-content-input">
+            <button class="button primary reload" id="assistant-content-reload-button" onclick="doReload2(event)" disabled>
+              Preview the page with design and content changes
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+      <div class="ass-step-4 ui-item-1 suggestions-container">
+        <strong>Suggested Prompts</strong>
+        <ul class="suggestions">
+          <li onclick="applySuggestion(event, 2)">
+            <div class="suggestion-item">
+              <span>Redesign the site from a design mock</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="ass-step-4 ui-item-2">
+        <ul class="ass-step-analyse-website">
+          <li>
+            <div class="progress-bar">
+              <div class="spinner"></div>
+            </div>
+            <span>Redesigning the site from the design mock<span class="ellipsis">...</span></span>
+          </li>
+        </ul>
+      </div>
+      <div class="ass-step-4 ui-item-3">
+        <div id="assistant-content-input">
+          <button class="button primary reload" id="assistant-content-reload-button" onclick="doReload3(event)" disabled>
+            Preview the redesigned page
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+      <div class="prompt-container">
+        <div class="prompt-container-body grow-wrap">
+          <textarea id="assistant-content-prompt" placeholder="Enter your prompt here" onInput="this.parentNode.dataset.replicatedValue = this.value"></textarea>
+        </div>
+        <div class="prompt-container-footer">
+          <div class="prompt-buttons-container">
+          <button class="button secondary" onclick="toggleModifiers()">
+            <img src="./modifiers.svg" alt="Modifiers" style="width: 14px; height: 18px;">
+              <span>Modifiers</span>
+            </button>
+            <button class="ai-button" id="prompt-apply-button" onclick="doImport()"><img src="./ai-magic.svg" alt="AI Magic" style="width: 16px; height: 16px; margin-right: 6px;"> Execute the prompt</button>
+          </div>
+          <div class="prompt-modifiers-container hidden">
+            <div class="prompt-modifiers-item">
+              <div class="prompt-modifiers-item-label">
+                <span>Reference file</span>
+              </div>
+              <div class="prompt-modifiers-item-container">
+                <div class="prompt-modifiers-file-upload" id="file-dropzone">
+                  <input type="file" id="prompt-modifiers-file-upload" accept=".png, .jpg, .jpeg, .svg, .webp">
+                  <div class="dropzone-content">
+                    <div class="dropzone-message">Drop reference image here</div>
+                    <div class="dropzone-preview" id="image-preview"></div>
+                  </div>
+                  <div class="upload-status" style="display: none;">
+                    <div class="progress-bar">
+                      <div class="spinner"></div>
+                    </div>
+                    <span>Uploading file<span class="ellipsis">...</span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script>
+      // File dropzone functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const dropzone = document.getElementById('file-dropzone');
+        const fileInput = document.getElementById('prompt-modifiers-file-upload');
+        const imagePreview = document.getElementById('image-preview');
+        const uploadStatus = document.querySelector('.upload-status');
+        const spinner = uploadStatus.querySelector('.spinner');
+        const ellipsis = uploadStatus.querySelector('.ellipsis');
+        
+        // Click to browse files
+        dropzone.addEventListener('click', function(e) {
+          if (e.target !== fileInput) {
+            fileInput.click();
+          }
+        });
+        
+        // Handle file selection via input
+        fileInput.addEventListener('change', function() {
+          handleFiles(this.files);
+        });
+        
+        // Prevent default drag behaviors
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+          dropzone.addEventListener(eventName, preventDefaults, false);
+          document.body.addEventListener(eventName, preventDefaults, false);
+        });
+        
+        // Highlight drop area when item is dragged over it
+        ['dragenter', 'dragover'].forEach(eventName => {
+          dropzone.addEventListener(eventName, highlight, false);
+        });
+        
+        ['dragleave', 'drop'].forEach(eventName => {
+          dropzone.addEventListener(eventName, unhighlight, false);
+        });
+        
+        // Handle dropped files
+        dropzone.addEventListener('drop', function(e) {
+          const dt = e.dataTransfer;
+          const files = dt.files;
+          handleFiles(files);
+        });
+        
+        function preventDefaults(e) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+        
+        function highlight() {
+          dropzone.classList.add('highlight');
+        }
+        
+        function unhighlight() {
+          dropzone.classList.remove('highlight');
+        }
+        
+        function handleFiles(files) {
+          if (files.length === 0) return;
+          
+          const file = files[0]; // Only handle the first file
+          
+          // Check if file is an image
+          if (!file.type.match('image.*')) {
+            alert('Please upload an image file');
+            return;
+          }
+          
+          // Display image preview
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            imagePreview.innerHTML = `<img src="${e.target.result}" alt="Preview">`;
+            imagePreview.style.display = 'block';
+          };
+          reader.readAsDataURL(file);
+          
+          // Simulate upload
+          simulateUpload(file);
+        }
+        
+        function simulateUpload(file) {
+          document.dispatchEvent(new Event('disablePrompt'));
+          // Reset and show upload status
+          spinner.classList.remove('done');
+          uploadStatus.style.display = 'flex';
+          uploadStatus.querySelector('span').textContent = 'Uploading file';
+          uploadStatus.querySelector('span').appendChild(ellipsis);
+          
+          // Simulate upload completion after a delay
+          setTimeout(() => {
+            // Mark as complete
+            spinner.classList.add('done');
+            ellipsis.remove();
+            uploadStatus.querySelector('span').textContent = 'Upload complete';
+
+            document.dispatchEvent(new Event('enablePrompt'));
+
+            // Optional: You can hide the status after a delay or keep it visible
+            // setTimeout(() => {
+            //   uploadStatus.style.display = 'none';
+            // }, 2000);
+            
+            console.log('Upload complete!');
+          }, 2500);
+        }
+      });
+    </script>
+  </body>
+</html>

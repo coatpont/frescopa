@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html class="spectrum spectrum--medium spectrum--light">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://use.typekit.net/zdg6wra.css">
+    <title>Site Transfer Assistant</title>
+    <link rel="stylesheet" href="spectrum.css">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <script>
+      const STEP_2_AEM_URL = 'https://destyled--frescopa--coatpont.aem.page/';
+
+      document.onReady = () => {
+        const steps = [
+          {
+            id: 'step-1',
+            title: 'Step 1 - Onboarding',
+          }
+        ]
+
+        debugger;
+
+      };
+      document.onreadystatechange = async function() {
+        if (document.readyState === "complete") {
+          console.log("Page is loaded completely!");
+
+          document.querySelectorAll('.ass-step-1.ui-item-4 a').forEach(a => {
+            a.href = STEP_2_AEM_URL;
+          });
+
+          /**
+           * 1. Get the URL of the current page to 
+           * automatically populate the onboarding step
+           */
+
+          const isIframe = window.self !== window.top;
+          const url = isIframe ? document.referrer : document.location.href;
+
+          if (url) {
+            const el = document.querySelector('.ass-step-1.ui-item-1 .ass-step-analyse-website span');
+            if (el) {
+              el.innerHTML = `Analyzing ${url} <span class="ellipsis">...</span>`;
+            }
+          }
+
+          /**
+           * Wait for 2.666 seconds to simulate the analysis
+           * 2. Mark the analysis step as done and enable the onboarding button if the URL is valid
+           */
+
+          await new Promise(resolve => setTimeout(resolve, 10666));
+
+          document.querySelectorAll('.ass-step-1.ui-item-1 div.spinner').forEach(sp => {
+            sp.classList.add('done');
+          });
+          document.querySelectorAll('.ass-step-1.ui-item-1 .ellipsis').forEach(el => el.remove());
+
+          const button = document.querySelector('#assistant-content-input-button');
+          if (button) {
+            button.removeAttribute('disabled');
+          }
+
+          await new Promise(resolve => setTimeout(resolve, 1666));
+          document.querySelector('.ass-step-1.suggestions-container').style.display = 'block';
+          document.querySelector('.ass-step-1.ui-item-1').classList.add('disabled');
+        }
+      };
+
+      async function applySuggestion(e, idx) {
+        // Reproduce the design of the original site
+        let el = e.target || e.currentTarget;
+        if (el) {
+          if (el.nodeName !== 'SPAN') {
+            el = el.querySelector('span');
+          }
+          const text = el.textContent;
+          document.querySelector('#assistant-content-prompt').value = text;
+        }
+      }
+
+      async function doImport() {
+        document.querySelector('#assistant-content').style.display = 'block';
+        await new Promise(resolve => setTimeout(resolve, 137));
+        document.querySelectorAll('.ass-step-1.ui-item-3').forEach(li => {
+          li.style.opacity = 1;
+        });
+
+          /**
+           * 3. Mark the onboarding steps as done
+           */
+
+          await new Promise(resolve => setTimeout(resolve, 5784));
+
+          document.querySelectorAll('.ass-step-1.ui-item-3 .ui-item-1 div.spinner').forEach(sp => {
+            sp.classList.add('done');
+          });
+          document.querySelectorAll('.ass-step-1.ui-item-3 .ui-item-1 .ellipsis').forEach(el => el.remove());
+
+          await new Promise(resolve => setTimeout(resolve, 2465));
+
+          document.querySelectorAll('.ass-step-1.ui-item-3 .ui-item-2 div.spinner').forEach(sp => {
+            sp.classList.add('done');
+          });
+          document.querySelectorAll('.ass-step-1.ui-item-3 .ui-item-2 .ellipsis').forEach(el => el.remove());
+
+          await new Promise(resolve => setTimeout(resolve, 7465));
+
+          document.querySelectorAll('.ass-step-1.ui-item-3 .ui-item-3 div.spinner').forEach(sp => {
+            sp.classList.add('done');
+          });
+          document.querySelectorAll('.ass-step-1.ui-item-3 .ui-item-3 .ellipsis').forEach(el => el.remove());
+
+          document.querySelectorAll('.ass-step-1.ui-item-4').forEach(li => {
+            li.style.display = 'block';
+          });
+      }
+
+      function doOpenOnboardedContent() {
+        window.open(STEP_2_AEM_URL, '_blank');
+      }
+
+      function onDisablePrompt() {
+        document.querySelector('.prompt-container').classList.add('disabled');
+      }
+
+      function onEnablePrompt() {
+        document.querySelector('.prompt-container').classList.remove('disabled');
+      }
+
+      function toggleModifiers() {
+        document.querySelector('.prompt-modifiers-container').classList.toggle('hidden');
+      }
+
+      document.addEventListener('disablePrompt', onDisablePrompt);
+      document.addEventListener('enablePrompt', onEnablePrompt);
+    </script>
+    </script>
+    <div id="assistant">
+      <div class="main-container">
+        <div class="ass-step-1 ui-item-1">
+          <ul class="ass-step-analyse-website">
+            <li>
+              <div class="progress-bar">
+                <div class="spinner"></div>
+              </div>
+              <span>Analyzing <span class="ellipsis">...</span></span>
+            </li>
+          </ul>
+        </div>
+        <div class="ass-step-1 ui-item-1 suggestions-container">
+          <strong>Suggested Prompts</strong>
+          <ul class="suggestions">
+            <li onclick="applySuggestion(event, 0)">
+              <div class="suggestion-item">
+                <span>Onboard the site to AEM</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="assistant-content">
+        <div id="assistant-content-input">
+        </div>
+        <div class="ass-step-1 ui-item-3">
+          <ul id="assistant-content-output-steps">
+            <li id="assistant-content-output-step-2" class="ui-item-1">
+              <div id="assistant-content-output-step-2-progress" class="progress-bar">
+                <div class="spinner"></div>
+              </div>
+              <span>Setting up the project <span class="ellipsis">...</span></span>
+            </li>
+            <li id="assistant-content-output-step-2" class="ui-item-2">
+              <div id="assistant-content-output-step-2-progress" class="progress-bar">
+                <div class="spinner"></div>
+              </div>
+              <span>Mapping the content into site blocks <span class="ellipsis">...</span></span>
+            </li>
+            <li id="assistant-content-output-step-3" class="ui-item-3">
+              <div id="assistant-content-output-step-3-progress" class="progress-bar">
+                <div class="spinner"></div>
+              </div>
+              <span>Onboarding the content on AEM <span class="ellipsis">...</span></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="ass-step-1 ui-item-4">
+        <button class="button primary reload" id="assistant-content-input-button" onclick="doOpenOnboardedContent()">Open the onboarded site in AEM</button>
+        </button>
+        <!-- <div>
+          <span>Open <a href="main page" target="_blank">Onboarded Content</a></span>
+        </div> -->
+      </div>
+
+      <div class="prompt-container">
+        <div class="prompt-container-body grow-wrap">
+          <textarea id="assistant-content-prompt" placeholder="Enter your prompt here" onInput="this.parentNode.dataset.replicatedValue = this.value"></textarea>
+        </div>
+        <div class="prompt-container-footer">
+          <div class="prompt-buttons-container">
+          <button class="button secondary" onclick="toggleModifiers()">
+            <img src="./modifiers.svg" alt="Modifiers" style="width: 14px; height: 18px;">
+              <span>Modifiers</span>
+            </button>
+            <button class="ai-button" id="prompt-apply-button" onclick="doImport()"><img src="./ai-magic.svg" alt="AI Magic" style="width: 16px; height: 16px; margin-right: 6px;"> Execute the prompt</button>
+          </div>
+          <div class="prompt-modifiers-container hidden">
+            <div class="prompt-modifiers-item">
+              <div class="prompt-modifiers-item-label">
+                <span>Reference file</span>
+              </div>
+              <div class="prompt-modifiers-item-container">
+                <div class="prompt-modifiers-file-upload" id="file-dropzone">
+                  <input type="file" id="prompt-modifiers-file-upload" accept=".png, .jpg, .jpeg, .svg, .webp">
+                  <div class="dropzone-content">
+                    <div class="dropzone-message">Drop reference image here</div>
+                    <div class="dropzone-preview" id="image-preview"></div>
+                  </div>
+                  <div class="upload-status" style="display: none;">
+                    <div class="progress-bar">
+                      <div class="spinner"></div>
+                    </div>
+                    <span>Uploading file<span class="ellipsis">...</span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+  </div>
+  </body>
+</html>

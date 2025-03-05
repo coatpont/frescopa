@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html class="spectrum spectrum--medium spectrum--light">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://use.typekit.net/zdg6wra.css">
+    <title>Site Transfer Assistant</title>
+    <link rel="stylesheet" href="spectrum.css">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <script>
+      document.onreadystatechange = async function() {
+        if (document.readyState === "complete") {
+          console.log("Page is loaded completely!");
+        }
+
+        await new Promise(resolve => setTimeout(resolve, 5348));
+
+        document.querySelectorAll('.ass-step-1.ui-item-1 div.spinner').forEach(sp => {
+          sp.classList.add('done');
+        });
+        document.querySelectorAll('.ass-step-1.ui-item-1 .ellipsis').forEach(el => el.remove());
+        
+        // enable the reload button
+        document.querySelector('#assistant-content-reload-button').removeAttribute('disabled');
+      };
+
+      async function doReload() {
+        // Send message to parent window
+        window.parent.postMessage({
+          type: 'reloadPage',
+          url: 'https://step-2--paolom-qantasnewsroom-250225--aemdemos.aem.page/'
+        }, '*');
+      }
+    </script>
+    </script>
+    <div id="assistant">
+      <div id="assistant-header">
+        <div id="assistant-header-title">
+          <h3>Site Transfer Assistant</h3>
+        </div>
+      </div>
+      <hr>
+      <h4>Step 2 - Basic Styling</h4>
+      <div class="main-container">
+        <div class="ass-step-1 ui-item-1">
+          <ul class="ass-step-analyse-website">
+            <li>
+              <div class="progress-bar">
+                <div class="spinner"></div>
+              </div>
+              <span>Applying basic styling <span class="ellipsis">...</span></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="assistant-content">
+        <div id="assistant-content-input">
+          <button class="ai-button" id="assistant-content-reload-button" onclick="doReload()" disabled>
+            <img src="./ai-magic.svg" alt="AI Magic" style="width: 16px; height: 16px; margin-right: 6px;"> Reload
+          </button>
+        </div>
+        <div class="ass-step-1 ui-item-3">
+        </div>
+      </div>
+  </div>
+  </body>
+</html>
