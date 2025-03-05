@@ -1,6 +1,6 @@
 (() => {
   // Constants and state
-  const defaultOrigin = 'https://main--frescopa--coatpont.aem.page/';
+  const defaultOrigin = 'https://main--frescopa--coatpont.aem.page';
 
   // Helper functions
   async function loadStyles(origin) {
