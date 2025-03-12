@@ -54,7 +54,7 @@
     const titleContainer = document.createElement('div');
     titleContainer.className = 'header-title-container';
     const title = document.createElement('div');
-    title.textContent = 'Site Transfer Agent';
+    title.textContent = 'Experience AI Catalyst';
 
     const badge = document.createElement('span');
     const badgeLabel = document.createElement('span');
